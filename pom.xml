@@ -6,6 +6,7 @@
 	<modules>
 		<module>common-util</module>
 		<module>common-framework</module>
+		<module>common-exception</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -35,6 +36,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>com.yz.work</groupId>
@@ -42,14 +49,13 @@
 			<version>${yz-common.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>RELEASE</version>
-			<scope>compile</scope>
+			<groupId>com.yz.work</groupId>
+			<artifactId>common-util</artifactId>
+			<version>${yz-common.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.yz.work</groupId>
-			<artifactId>common-util</artifactId>
+			<artifactId>common-exception</artifactId>
 			<version>${yz-common.version}</version>
 		</dependency>
 	</dependencies>

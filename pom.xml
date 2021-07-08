@@ -23,6 +23,9 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<yz-common.version>0.0.1-SNAPSHOT</yz-common.version>
+
+		<!-- ali -->
+		<fastjson.version>1.2.49</fastjson.version>
 	</properties>
 
 	<dependencies>
@@ -57,6 +60,12 @@
 			<groupId>com.yz.work</groupId>
 			<artifactId>common-exception</artifactId>
 			<version>${yz-common.version}</version>
+		</dependency>
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
 		</dependency>
 	</dependencies>
 

@@ -1,6 +1,8 @@
 package com.yz.work.common.utils;
 
 
+import java.util.function.Supplier;
+
 /**
  * @author yangzheng.zhang
  * @date 2020-01-13
@@ -17,16 +19,29 @@ public class PageUtil {
      * @param <T>
      * @param <E>
      */
+//    @FunctionalInterface
+//    public interface PagePredicate<T, E> {
+//        boolean query(T pageNum, E pageSize);
+//    }
+//
+//    public static void pageOperateHandle(Integer pageSize, PagePredicate pagePredicate) {
+//        Integer limitStart = 0;
+//        while(pagePredicate.query(limitStart, pageSize)) {
+//            limitStart += pageSize;
+//        }
+//    }
+
     @FunctionalInterface
     public interface PagePredicate<T, E> {
-        boolean query(T pageNum, E pageSize);
+        T test(T limitStart, E pageSize) throws Exception;
     }
 
-    public static void pageOperateHandle(Integer pageSize, PagePredicate pagePredicate) {
-        Integer limitStart = 0;
-        while(pagePredicate.query(limitStart, pageSize)) {
-            limitStart += pageSize;
-        }
+    public static <T, E> void pageHandle(Supplier<T> limit, E pageSize, PagePredicate<T, E> pagePredicate) throws Exception {
+        assert limit != null && limit.get() != null;
+        T limitStart = limit.get();
+        do{
+            limitStart = pagePredicate.test(limitStart, pageSize);
+        } while (limitStart != null);
     }
 
 }

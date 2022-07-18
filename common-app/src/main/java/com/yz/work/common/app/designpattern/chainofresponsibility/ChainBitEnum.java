@@ -6,10 +6,10 @@ package com.yz.work.common.app.designpattern.chainofresponsibility;
  * @date 2022-07-06 14:24
  */
 public enum ChainBitEnum {
-    RAPID_SETTLEMENT_FOLLOW(1),
-    OLD_ONLINE_PAY_FOLLOW(2),
-    NEW_ONLINE_PAY_FOLLOW(4),
-    SEND_CONFIRM_BILL(8),
+    THE_FIRST_STEP(1),
+    THE_SECOND_STEP(2),
+    THE_THIRD_STEP(4),
+    THE_FOURTH_STEP(8),
             ;
     private int bit;
 

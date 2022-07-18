@@ -1,4 +1,4 @@
-package com.yz.work.common.app.designpattern.chainofresponsibility;
+package com.yz.work.common.app.designpattern.chainofresponsibility.handler;
 
 /**
  * @author yangzhengzhang

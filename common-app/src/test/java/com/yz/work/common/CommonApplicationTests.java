@@ -1,4 +1,4 @@
-package com.yz.work.common.utils;
+package com.yz.work.common;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

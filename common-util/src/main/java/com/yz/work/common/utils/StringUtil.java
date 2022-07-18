@@ -3,12 +3,12 @@ package com.yz.work.common.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.parser.Feature;
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.util.StringUtils;
 
 import java.security.MessageDigest;
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -90,14 +90,14 @@ public class StringUtil {
      * base 64加密
      */
     public static String base64Encode(byte[] bytes) {
-        return Base64.encodeBase64String(bytes);
+        return Base64.getEncoder().encodeToString(bytes);
     }
 
     /**
      * base 64解密
      */
     public static byte[] base64Decode(String content) {
-        return Base64.decodeBase64(content);
+        return Base64.getDecoder().decode(content);
     }
 
     /**

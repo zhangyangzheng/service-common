@@ -24,9 +24,8 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<yz-common.version>0.0.1-SNAPSHOT</yz-common.version>
-
 		<!-- ali -->
-		<fastjson.version>1.2.49</fastjson.version>
+		<fastjson.version>1.2.83</fastjson.version>
 	</properties>
 
 	<dependencies>
@@ -40,34 +39,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>RELEASE</version>
-			<scope>compile</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-web</artifactId>-->
+<!--			<version>RELEASE</version>-->
+<!--			<scope>compile</scope>-->
+<!--		</dependency>-->
 
-		<dependency>
-			<groupId>com.yz.work</groupId>
-			<artifactId>common-framework</artifactId>
-			<version>${yz-common.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.yz.work</groupId>
-			<artifactId>common-util</artifactId>
-			<version>${yz-common.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.yz.work</groupId>
-			<artifactId>common-exception</artifactId>
-			<version>${yz-common.version}</version>
-		</dependency>
 		<!-- fastjson -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>${fastjson.version}</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.alibaba</groupId>-->
+<!--			<artifactId>fastjson</artifactId>-->
+<!--			<version>${fastjson.version}</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>

@@ -1,5 +1,7 @@
 package com.yz.work.common.app.algorithms.insertionSortList;
 
+import java.util.Arrays;
+
 /**
  * @author yangzhengzhang
  * @description
@@ -14,6 +16,12 @@ public class Solution {
         ListNode node1 = new ListNode(4, node2);
         Solution solution = new Solution();
         solution.insertionSortList(node1);
+
+        // array
+        int [] source = new int[]{4,2,1,3};
+        System.out.println(Arrays.toString(source));
+        int[] sort = solution.insertSort(source);
+        System.out.println(Arrays.toString(sort));
     }
 
     public ListNode insertionSortList(ListNode head) {
@@ -66,5 +74,22 @@ public class Solution {
             }
         }
         return dummy.next;
+    }
+
+    public int[] insertSort(int[] sourceArray) {
+        if (sourceArray == null || sourceArray.length <= 1) {
+            return sourceArray;
+        }
+
+        for (int i = 1; i < sourceArray.length; i++) {
+            int temp = sourceArray[i];
+            for (int j = i - 1; j >= 0; j--) {
+                if (temp < sourceArray[j]) {
+                    sourceArray[j + 1] = sourceArray[j];
+                    sourceArray[j] = temp;
+                }
+            }
+        }
+        return sourceArray;
     }
 }

@@ -1,11 +1,9 @@
 package com.yz.work.common.utils;
 
 import com.alibaba.fastjson.JSON;
-import hotel.settlement.common.LogHelper;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.*;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.FutureTask;
 import java.util.function.Function;
 
@@ -19,36 +17,25 @@ public class ParallelUtil {
   public static <T, R> List<R> paralleHandle(
       Collection<T> collection,
       Function<T, R> function,
-      ThreadPoolTaskExecutor executorService,
-      Class<?> clazz)
-      throws Exception {
+      ThreadPoolTaskExecutor executorService) {
 
     List<R> handleResults = new ArrayList<>();
     List<FutureTask<R>> tasksResults = new ArrayList<>();
-    CountDownLatch latch = new CountDownLatch(collection.size());
     Iterator<T> iterator = collection.iterator();
     while (iterator.hasNext()) {
       try {
+        T t = iterator.next();
         FutureTask<R> task =
             new FutureTask<>(
                 () -> {
-                  LogHelper.logInfo(
-                      clazz.getSimpleName() + " CountDownLatch",
-                      Thread.currentThread().getName() + "-" + JSON.toJSONString(iterator.next()));
-                  R result = function.apply(iterator.next());
-                  latch.countDown();
-                  return result;
+                  System.out.println(Thread.currentThread().getName() + "-" + JSON.toJSONString(t));
+                  return function.apply(t);
                 });
         tasksResults.add(task);
         executorService.submit(task);
       } catch (Exception ex) {
-        LogHelper.logError(clazz.getSimpleName(), ex);
+        ex.printStackTrace();
       }
-    }
-    try {
-      latch.await();
-    } catch (Exception e) {
-      LogHelper.logError(clazz.getSimpleName(), e);
     }
     for (FutureTask<R> futureTask : tasksResults) {
       try {
@@ -57,7 +44,7 @@ public class ParallelUtil {
           handleResults.add(taskResult);
         }
       } catch (Exception e) {
-        LogHelper.logError(clazz.getSimpleName(), e);
+        e.printStackTrace();
       }
     }
     return handleResults;
